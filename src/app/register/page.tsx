@@ -4301,7 +4301,7 @@ export default function HotelRegistrationPage() {
       
       setTimeout(() => {
         // Use hotel_slug from the registered hotel
-        const hotelSlug = hotel.hotel_slug || hotel.slug || hotel.hotelName?.toLowerCase().replace(/\s+/g, '-')
+        const hotelSlug = hotel.hotel_slug  || hotel.hotel_name?.toLowerCase().replace(/\s+/g, '-')
         if (hotelSlug) {
           router.push(`/dashboard/${hotelSlug}`)
         } else {

@@ -1309,7 +1309,7 @@ export interface Order {
   amount: number;
   status:
     | "pending"
-    | "confirmed"
+    | "confirmed"  //this need to be removed
     | "preparing"
     | "ready"
     | "served"
@@ -1351,7 +1351,6 @@ export interface Staff {
   id: string;
   staff_code: string;
 
-  // ✅ backend returns "name"
   name: string;
 
   role:
@@ -1369,7 +1368,7 @@ export interface Staff {
   status: "active" | "inactive";
   is_active: boolean;
 
-  password?: string;
+  password?: string; //need to be removed
   permissions?: any;
 
   total_orders?: number;
@@ -1408,7 +1407,6 @@ export interface MenuItem {
   name: string;
   description?: string;
 
-  // ✅ display-friendly
   category: string; // category_name from backend
   category_id: string;
 
@@ -1730,7 +1728,7 @@ export const fetchStaff = createAsyncThunk<
 
     // backend returns: { success: true, staff: [...] }
     const root = response?.data;
-    console.log("this is the fetchstaff response:- ", root);
+    // console.log("this is the fetchstaff response:- ", root);
 
     const staffArr = Array.isArray(root?.staff) ? root.staff : [];
 
@@ -1756,7 +1754,7 @@ export const createStaff = createAsyncThunk<
       password: staffData.password ?? null,
       permissions: staffData.permissions ?? undefined,
     };
-    console.log("this is the create staff payload:- ", payload);
+    // console.log("this is the create staff payload:- ", payload);
 
     const response = await api.post(`/api/hotel/data/staff`, payload);
 
