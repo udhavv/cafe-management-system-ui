@@ -5589,9 +5589,9 @@ function HotelRegistrationContent() {
         // Use hotel_slug from the registered hotel
         const hotelSlug = hotel.hotel_slug  || hotel.hotel_name?.toLowerCase().replace(/\s+/g, '-')
         if (hotelSlug) {
-          router.push(`/dashboard/${hotelSlug}`)
+          router.push(`/hotel/${hotelSlug}/dashboard`)
         } else {
-          router.push('/dashboard')
+          router.push('/login')
         }
       }, 3000)
     }
